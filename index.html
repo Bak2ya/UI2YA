@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3ec">
+  <meta name="description" content="UI2YA — UI 컴포넌트, 디자인 스타일, 모션 프리셋을 직접 체험하고 AI 개발 지시문으로 가져가는 인터랙티브 백과사전.">
+  <title>UI2YA — Interface & Motion Atlas</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23424bc6'/%3E%3Cg fill='none' stroke='white'%3E%3Crect x='7' y='7' width='13' height='15' rx='3' opacity='.55'/%3E%3Crect x='12' y='11' width='13' height='15' rx='3'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="stylesheet" href="atlas.css">
+  <link rel="stylesheet" href="themes.css">
+  <link rel="stylesheet" href="expanded-themes.css">
+  <link rel="stylesheet" href="ui2ya.css">
+  <link rel="stylesheet" href="v03.css">
+  <link rel="stylesheet" href="v04.css">
+  <link rel="stylesheet" href="v05.css">
+  <link rel="stylesheet" href="v06.css">
+  <script defer src="catalog.js"></script>
+  <script defer src="research.js"></script>
+  <script defer src="expansion.js"></script>
+  <script defer src="motion.js"></script>
+  <script defer src="components.js"></script>
+  <script defer src="colors.js"></script>
+  <script defer src="styles.js"></script>
+  <script defer src="presets.js"></script>
+  <script defer src="experience-data.js"></script>
+  <script defer src="icon-assets.js"></script>
+  <script defer src="icon-library.js"></script>
+  <script defer src="layout-lab.js"></script>
+  <script defer src="component-motion.js"></script>
+  <script defer src="motion-workspace.js"></script>
+  <script defer src="app.js"></script>
+  <script defer src="v03.js"></script>
+  <script defer src="v04.js"></script>
+</head>
+<body class="collection" data-theme="flat2" data-dark="false">
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+  <aside class="rail" aria-label="UI2YA 탐색">
+    <a class="brand" href="#layout"><span class="brand-mark" aria-hidden="true"><i></i><i></i></span><span>UI2YA<small>INTERACTION ATLAS</small></span></a>
+    <nav id="primary-nav" aria-label="주 메뉴">
+      <a href="#layout" data-section="layout"><span data-icon="layout-template"></span><span>레이아웃</span></a>
+      <a href="#catalog/component" data-section="catalog"><span data-icon="component"></span><span>컴포넌트</span></a>
+      <a href="#motion" data-section="motion"><span data-icon="activity"></span><span>모션 실험실</span></a>
+      <a href="#catalog/pattern" data-section="pattern"><span data-icon="mouse-pointer-click"></span><span>UX 패턴</span></a>
+      <a href="#favorites" data-section="favorites"><span data-icon="star"></span><span>즐겨찾기</span></a>
+      <a href="#icons" data-section="icons"><span data-icon="shapes"></span><span>아이콘 라이브러리</span></a>
+    </nav>
+    <div class="rail-footer"><a href="#references" class="rail-source-link">프로젝트 정보·출처</a><span id="app-version">v0.7.0</span></div>
+  </aside>
+  <div class="page">
+    <header class="topbar" aria-label="상단 도구막대">
+      <div class="top-brand"><strong id="location-label">레이아웃</strong></div>
+      <div class="top-style-strip" aria-label="디자인 선택" id="quick-styles"></div>
+      <div class="top-actions">
+        <label class="u-color-inline" title="강조 색상 · Color Swatch"><span class="sr-only">강조 색상</span><input id="quick-accent" type="color" value="#3478F6"></label>
+        <div class="u-mode" role="group" aria-label="표시 모드" data-help="mode" tabindex="0">
+          <button type="button" data-mode="system" aria-label="시스템 모드" title="시스템 모드"><span data-icon="monitor"></span></button>
+          <button type="button" data-mode="light" aria-label="라이트 모드" title="라이트 모드"><span data-icon="sun"></span></button>
+          <button type="button" data-mode="dark" aria-label="다크 모드" title="다크 모드"><span data-icon="moon"></span></button>
+        </div>
+        <form id="global-search" role="search" data-expanded="false">
+          <button type="button" id="search-expand" aria-expanded="false" aria-controls="find" aria-label="검색창 확장" title="Expandable Search · 확장형 검색창"><span data-icon="search"></span><span>전체 검색</span></button>
+          <label class="sr-only" for="find">도감 검색</label><input id="find" type="search" placeholder="이름·동작 검색" autocomplete="off" tabindex="-1">
+          <button class="search-enter" type="submit">찾기</button><button type="button" id="search-collapse" aria-label="검색창 접기"><span data-icon="x"></span></button>
+        </form>
+        <button type="button" id="settings-toggle" class="chrome-icon" popovertarget="design-popover" aria-label="디자인 설정" title="디자인 설정 · Popover"><span data-icon="sliders-horizontal"></span></button>
+      </div>
+    </header>
+    <main id="main" tabindex="-1"></main>
+  </div>
+  <aside id="motion-drawer" class="motion-drawer style-drawer" aria-label="디자인 스타일 설명" aria-hidden="true" inert>
+    <div class="drawer-heading"><h2>스타일 설명</h2><button type="button" id="drawer-close" class="chrome-icon" aria-label="스타일 설명 닫기"><span data-icon="x"></span></button></div>
+    <div id="drawer-style-story"></div>
+  </aside>
+  <div id="design-popover" class="design-popover" popover="manual" aria-label="디자인 설정">
+    <div class="drawer-heading"><h2>디자인 설정</h2><button type="button" popovertarget="design-popover" popovertargetaction="hide" class="chrome-icon" aria-label="디자인 설정 닫기"><span data-icon="x"></span></button></div>
+    <div id="design-editor"></div>
+  </div>
+  <dialog id="tour-modal-example" class="sample-dialog" aria-labelledby="tour-modal-title">
+    <h2 id="tour-modal-title">모달 대화상자 예시</h2>
+    <p>이 대화상자를 닫기 전에는 배경을 조작할 수 없어.</p>
+    <form method="dialog"><button class="u-action" type="submit">닫기</button></form>
+  </dialog>
+  <dialog id="spotlight-dialog" aria-labelledby="coach-title">
+    <div class="spotlight-ring" aria-hidden="true"></div>
+    <section class="coach-mark"></section>
+  </dialog>
+  <div id="ui-learn-popover" class="ui-learn-popover" role="dialog" aria-label="UI 용어 설명" hidden></div>
+  <section id="prompt-dock" class="prompt-dock" aria-label="AI 프롬프트 조합기">
+    <button type="button" id="dock-toggle" class="dock-handle" aria-expanded="false" aria-controls="dock-content"><span>AI 프롬프트 조합</span><span id="dock-count">선택 0개</span><span id="dock-chevron" data-icon="chevron-right"></span></button>
+    <div id="dock-content" class="dock-content" hidden>
+      <div class="dock-tokens" id="dock-tokens"></div>
+      <div class="dock-row"><label class="u-checkline"><input id="prompt-detailed" type="checkbox"> 상세 지시문</label><button class="u-action" id="prompt-clear" type="button">선택 비우기</button><button class="u-action primary" id="prompt-copy" type="button">프롬프트 복사</button></div>
+      <textarea id="prompt-output" rows="3" readonly aria-label="조합된 AI 개발 프롬프트"></textarea>
+      <p class="u-help">선택한 모션만 조합해서 복사할 수 있어. 개인별 프롬프트는 여기서 로컬로 생성되며 외부로 전송하지 않아.</p>
+    </div>
+  </section>
+  <p class="app-status" id="app-status" role="status" aria-live="polite"></p>
+  <noscript>UI2YA는 JavaScript를 사용해 직접 조작 가능한 데모를 표시합니다.</noscript>
+</body>
+</html>
